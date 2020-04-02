@@ -163,7 +163,7 @@ def demo():
     print(preprocess.__doc__)
     import matplotlib.pyplot as plt
     
-    data = preprocess('data.csv')
+    data = preprocess('fifa19_data.csv')
     # Relation Between Jersey Number and Wage of a Player
     fig = data.plot(kind='scatter', x='Wage', y='Jersey Number', color='blue')
     fig.set_title("Relation Between Jersey Number and Wage of a Player")
