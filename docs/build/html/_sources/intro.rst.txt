@@ -1,4 +1,0 @@
-Introduction
-************
-
-.. image:: _static/google_pic.jpg
