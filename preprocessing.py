@@ -16,6 +16,8 @@ that `matplotlib.pyplot` be installed.
 
 Functions
 ---------
+read_fifa()
+    Read the FIFA 19 data set.
 exclude_goalkeepers(data_frame)
     Delete goalkeepers from the data.
 money_format(money)
@@ -39,6 +41,40 @@ demo()
 """
 import math
 import pandas as pd
+
+
+def read_fifa():
+    """Return the FIFA 19 data set.
+
+    Read "fifa19_data.csv" containing the FIFA 19 data set into a  DataFrame
+    object and return it.
+
+    Returns
+    -------
+    pandas.DataFrame
+        DataFrame containing FIFA 19 data set.
+
+    Notes
+    -----
+    About fifa19_data.csv file
+    fifa19_data.csv includes lastest edition FIFA 2019 players attributes like Age,
+    Nationality, Overall, Potential, Club, Value, Wage, Preferred Foot, International
+    Reputation, Weak Foot, Skill Moves, Work Rate, Position, Jersey Number, Joined,
+    Loaned From, Contract Valid Until, Height, Weight, LS, ST, RS, LW, LF, CF, RF, RW,
+    LAM, CAM, RAM, LM, LCM, CM, RCM, RM, LWB, LDM, CDM, RDM, RWB, LB, LCB, CB, RCB, RB,
+    Crossing, Finishing, Heading, Accuracy, ShortPassing, Volleys, Dribbling, Curve,
+    FKAccuracy, LongPassing, BallControl, Acceleration, SprintSpeed, Agility, Reactions,
+    Balance, ShotPower, Jumping, Stamina, Strength, LongShots, Aggression, Interceptions,
+    Positioning, Vision, Penalties, Composure, Marking, StandingTackle, SlidingTackle,
+    GKDiving, GKHandling, GKKicking, GKPositioning, GKReflexes, and Release Clause.
+    More information about the data can be found in the source [1].
+
+    References
+    ----------
+    [1] This data set was scraped from https://www.kaggle.com/karangadiya/fifa19.
+    """
+    return pd.read_csv("fifa19_data.csv")
+
 
 
 def exclude_goalkeepers(data_frame):
@@ -424,20 +460,19 @@ def split_work_rate(data_frame):
     return apply_format(data_frame, ['Defensive Work Rate', 'Offensive Work Rate'], work_format)
 
 
-def preprocess(source_file):
-    """Preprocess data from the source file to enable its analysis.
+def preprocess(data):
+    """Preprocess data to enable its analysis.
 
-    Perform optimal preprocessing on the FIFA19 data set. Load the data
-    from the `source_file` path, drop irrelevant attributes. Convert 
-    attribute types, e.g. categorical data into numerical or floating
-    point numbers carrying integers into integers. Manage column
+    Perform optimal preprocessing on the FIFA 19 data set. Drop irrelevant
+    attributes. Convert attribute types, e.g. categorical data into numerical
+    or floating point numbers carrying integers into integers. Manage column
     representation of attributes. Return the preprocessed DataFrame,
     ready to perform data analysis on it.
 
     Parameters
     ----------
-    source_file : str
-        File path to the data source file.
+    data : pandas.DataFrame
+        Data to preprocess.
 
     Returns
     -------
@@ -450,8 +485,6 @@ def preprocess(source_file):
     exclude_goalkeepers, apply_format, money_format, to_int,
     to_dummy, split_work_rate
     """
-    data = pd.read_csv(source_file)
-
     # Drop useless attributes.
     # Unnamed: 0 is an index (0 - n).
     # ID is FIFA19's internal id.
