@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 """This module provides methods conceived to preprocess data stored
 in a csv file etc., with the intent to perform data analysis and
 Machine Learning.
@@ -29,7 +31,7 @@ work_format(work)
 to_int(not_int)
     Floor floating point numbers.
 apply_format(data_frame, column_names, format_method)
-    Apply `format_method` to `data_frame`columns.
+    Apply `format_method` to `data_frame` columns.
 to_dummy(data_frame, column_names)
     Dummy code categorical variables.
 split_work_rate(data_frame)
@@ -113,7 +115,6 @@ def exclude_goalkeepers(data_frame):
     4              K. De Bruyne      RCM
                             ...      ...
     18206             G. Nugent       CM
-
     [18207 rows x 2 columns]
     >>> data = exclude_goalkeepers(data)
     >>> print(data[['Name', 'Position']])
@@ -375,7 +376,7 @@ def to_dummy(data_frame, column_names):
     Thanks to dummy coding, statistical analysis may be performed on
     categorical data.
 
-    .. [1] "Dummy coding refers to the process of coding a categorical
+    [1] "Dummy coding refers to the process of coding a categorical
     variable into dichotomous variables. For example, we may have data
     about participants' religion, with each participant coded as follows:
 
@@ -531,7 +532,8 @@ def demo():
     """Demonstrate basic use of the module, use preprocess and plot a simple relation."""
     import matplotlib.pyplot as plt
     
-    data = preprocess('fifa19_data.csv')
+    data = read_fifa()
+    data = preprocess(data)
     # Relation Between Jersey Number and Wage of a Player
     fig = data.plot(kind='scatter', x='Wage', y='Jersey Number', color='blue')
     fig.set_title("Relation Between Jersey Number and Wage of a Player")
