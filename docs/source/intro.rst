@@ -1,4 +1,4 @@
 Introduction
 ************
 
-.. image:: _static/google_pic.jpg
+.. image:: _static/fifa19.png

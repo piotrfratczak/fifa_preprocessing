@@ -125,7 +125,6 @@ def exclude_goalkeepers(data_frame):
     4              K. De Bruyne      RCM
                             ...      ...
     18206             G. Nugent       CM
-
     [16182 rows x 2 columns]
     """
     goalkeepers = data_frame[data_frame['Position'] == 'GK']
@@ -382,22 +381,28 @@ def to_dummy(data_frame, column_names):
 
         A categorical or nominal variable with three categories
 
+                        ==========      =======
                         Religion	Code
+                        ==========      =======
                         Christian	1
                         Muslim		2
                         Atheist		3
+                        ==========      =======
 
     This is a nominal variable (see level of measurement) which would be
     inappropriate as a predictor in MLR. However, this variable could be
     represented using a series of three dichotomous variables (coded as
     0 or 1), as follows:
 
-        Full dummy coding for a categorical variable with three categories
+        Full dummy coding for a categorical variable with three categories"
 
-                Religion	Christian	Muslim	Atheist
-                Christian	1		0	0
-                Muslim		0		1	0
-                Atheist		0		0	1	"
+                ==========	==========	==========	==========
+                Religion	Christian	Muslim		Atheist
+                ==========	==========	==========	==========
+                Christian	1		0		0
+                Muslim		0		1		0
+                Atheist		0		0		1	
+                ==========	==========	==========	==========
 
     References
     ----------

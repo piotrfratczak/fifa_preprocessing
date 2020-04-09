@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
-project = u'FIFA_Preprocessing'
+project = u'FIFA preprocessing'
 copyright = u'2020, Piotr Frątczak, Jakub Płudowski'
 author = u'Piotr Frątczak, Jakub Płudowski'
 
