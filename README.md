@@ -14,12 +14,12 @@ It was originally created to preprocess data from the EA Sports' FIFA 19 for a M
 ## Technologies
 It was written in Python 3.6 and requires 'pandas' to be installed in used environment. Also it requires 'matplotlib.pyplot' be installed if it is run as main.
 
-##Functions
+## Functions
 Already done functions:
 * Loading data set from Fifa 19
 * Removing goalkeepers from data
 * Some data type converters
 
-##Status
+## Status
 Project is curently in progress.
 
