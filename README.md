@@ -4,7 +4,7 @@ This module provides methods conceived to preprocess data stored in a csv file e
 ## Table of contents
 * [General Info](#general-info)
 * [Technologies](#technologies)
-* [Functions] (#functions)
+* [Functions](#functions)
 * [Status](#status)
 
 
