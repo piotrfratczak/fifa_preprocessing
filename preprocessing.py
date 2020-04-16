@@ -105,27 +105,22 @@ def exclude_goalkeepers(data_frame):
     
     Examples
     --------
-    >>> data = pandas.read_csv("fifa19_data.csv")
-    >>> print(data[['Name', 'Position']])
-                           Name Position
-    0                  L. Messi       RF
-    1         Cristiano Ronaldo       ST
-    2                 Neymar Jr       LW
-    3                    De Gea       GK
-    4              K. De Bruyne      RCM
-                            ...      ...
-    18206             G. Nugent       CM
-    [18207 rows x 2 columns]
+    >>> data = read_fifa()
+    >>> print(data[['Name', 'Position']][0:5]) #print first few rows
+                    Name Position
+    0           L. Messi       RF
+    1  Cristiano Ronaldo       ST
+    2          Neymar Jr       LW
+    3             De Gea       GK
+    4       K. De Bruyne      RCM
     >>> data = exclude_goalkeepers(data)
-    >>> print(data[['Name', 'Position']])
-                           Name Position
-    0                  L. Messi       RF
-    1         Cristiano Ronaldo       ST
-    2                 Neymar Jr       LW
-    4              K. De Bruyne      RCM
-                            ...      ...
-    18206             G. Nugent       CM
-    [16182 rows x 2 columns]
+    >>> print(data[['Name', 'Position']][0:5]) #print the same number of rows
+                    Name Position
+    0           L. Messi       RF
+    1  Cristiano Ronaldo       ST
+    2          Neymar Jr       LW
+    4       K. De Bruyne      RCM
+    5          E. Hazard       LF
     """
     goalkeepers = data_frame[data_frame['Position'] == 'GK']
     data_frame.drop(goalkeepers.index, inplace=True)
@@ -157,7 +152,7 @@ def money_format(money):
     >>> print(v)
     500
 
-    >>> v = money_format("€70.5M)"
+    >>> v = money_format("€70.5M")
     >>> print(v)
     70500
     """
@@ -277,7 +272,7 @@ def to_int(not_int):
 
     See Also
     --------
-    numpy.nan : Nan stands for: not a number.
+    math.nan : Nan stands for not a number.
     
     Examples
     --------
@@ -285,7 +280,7 @@ def to_int(not_int):
     >>> print(n)
     17
 
-    >>> n = to_int(numpy.nan)
+    >>> n = to_int(math.nan)
     >>> print(n)
     0
     """
@@ -325,22 +320,18 @@ def apply_format(data_frame, column_names, format_method):
 
     Examples
     --------
-    >>> data = pandas.read_csv("fifa19_data.csv")
-    >>> print(data['Wage'])
-    0        €565K
-    1        €405K
-             ...
-    18205      €1K
-    18206      €1K
-    Name: Wage, Length: 18207, dtype: object
+    >>> data = read_fifa()
+    >>> print(data[['Wage']][0:3]) #print first few lines
+        Wage
+    0  €565K
+    1  €405K
+    2  €290K
     >>> data = apply_format(data, ['Wage'], money_format)
-    >>> print(data['Wage'])
-    0        565
-    1        405
-            ...
-    18205      1
-    18206      1
-    Name: Wage, Length: 18207, dtype: int64
+    >>> print(data[['Wage']][0:3])
+       Wage
+    0   565
+    1   405
+    2   290
     """
     for column in column_names:
         if isinstance(column, str) and (column in data_frame) and callable(format_method):
@@ -446,19 +437,22 @@ def split_work_rate(data_frame):
 
     Examples
     --------
-    >>> data = pandas.read_csv("fifa19_data.csv")
-    >>> print(data['Work Rate'])
-    0        Medium/ Medium
-    1             High/ Low
-    2          High/ Medium
-                    ...
+    >>> data = read_fifa()
+    >>> print(data[['Work Rate']][0:3]) #print first few rows
+            Work Rate
+    0  Medium/ Medium
+    1       High/ Low
+    2    High/ Medium
     >>> data = split_work_rate(data)
-    >>> print(data[['Defensive Work Rate', 'Offensive Work Rate']])
-           Defensive Work Rate  Offensive Work Rate
-    0                        1                    1
-    1                        2                    0
-    2                        2                    1
-                           ...                  ...
+    >>> print(data[['Defensive Work Rate', 'Offensive Work Rate']][0:3])
+       Defensive Work Rate  Offensive Work Rate
+    0                    1                    1
+    1                    2                    0
+    2                    2                    1
+    >>> print(data[['Work Rate']][0:3]) #print first few rows
+    Traceback (most recent call last):
+        ...
+    KeyError: "['Work Rate'] not in index"
     """
     data_frame.rename(columns={'Work Rate': 'Work'}, inplace=True)
     data_frame[['Defensive Work Rate', 'Offensive Work Rate']] = data_frame.Work.str.split('/ ', expand=True)
@@ -487,7 +481,7 @@ def preprocess(data):
 
     See Also
     --------
-    pandas.DataFrame.drop, pandas.DataFrame.dropna, pandas.read_csv
+    pandas.DataFrame.drop, pandas.DataFrame.dropna
     exclude_goalkeepers, apply_format, money_format, to_int,
     to_dummy, split_work_rate
     """
