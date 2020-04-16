@@ -7,6 +7,7 @@ This module provides methods conceived to preprocess data stored in a csv file e
 * [Data](#data)
 * [Running](#running)
 * [Functions](#functions)
+* [Testing](#testing)
 * [Status](#status)
 * [Authors](#authors)
 * [License](#license)
@@ -40,6 +41,12 @@ Already done functions:
 * Loading data set from Fifa 19
 * Removing goalkeepers from data
 * Some data type converters
+
+## Testing
+To execute tests on the mudule's functions run:
+```
+$ python3 -m doctest -v preprocessing.py 
+```
 
 ## Status
 Project is curently in progress.
