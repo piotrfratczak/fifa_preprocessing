@@ -14,12 +14,12 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('../../fifa_preprocessing'))
 
 
 # -- Project information -----------------------------------------------------
 
-project = u'FIFA preprocessing'
+project = u'FIFA Preprocessing'
 copyright = u'2020, Piotr Frątczak, Jakub Płudowski'
 author = u'Piotr Frątczak, Jakub Płudowski'
 

@@ -38,8 +38,6 @@ split_work_rate(data_frame)
     Split the players' work rate column.
 preprocess(source_file)
     Preprocess the FIFA 19 data from the path by default.
-demo()
-    Demonstrate basic use of the module.
 """
 import math
 import pandas as pd
@@ -525,22 +523,4 @@ def preprocess(data):
     data = split_work_rate(data)
 
     return data
-
-
-def demo():
-    """Demonstrate basic use of the module, use preprocess and plot a simple relation."""
-    import matplotlib.pyplot as plt
-    
-    data = read_fifa()
-    data = preprocess(data)
-    # Relation Between Jersey Number and Wage of a Player
-    fig = data.plot(kind='scatter', x='Wage', y='Jersey Number', color='blue')
-    fig.set_title("Relation Between Jersey Number and Wage of a Player")
-    fig.set_xlabel('Wage [k€]')
-    fig = plt.gcf()
-    plt.show()
-
-
-if __name__ == '__main__':
-    demo()
 
