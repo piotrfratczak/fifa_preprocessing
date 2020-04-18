@@ -7,6 +7,7 @@ This module provides methods conceived to preprocess data stored in csv files et
 * [Acknowledgements](#acknowledgements)
 * [Running](#running)
 * [Functions](#functions)
+* [Tutorial](#tutorial)
 * [Testing](#testing)
 * [Status](#status)
 * [Authors](#authors)
@@ -42,6 +43,9 @@ Already done functions:
 * Loading data set from Fifa 19
 * Removing goalkeepers from data
 * Some data type converters
+
+## Tutorial
+This [tutorial](tutorial.ipynb) should help you start using our module!
 
 ## Testing
 To execute tests on the mudule's functions run:
