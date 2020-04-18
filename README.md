@@ -45,7 +45,7 @@ Already done functions:
 * Some data type converters
 
 ## Tutorial
-This [tutorial](tutorial.ipynb) should help you start using our module!
+This [tutorial](tutorial/tutorial.ipynb) should help you start using our module!
 
 ## Testing
 To execute tests on the mudule's functions run:
