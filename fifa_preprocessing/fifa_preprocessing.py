@@ -72,9 +72,19 @@ def read_fifa():
     References
     ----------
     [1] This data set was scraped from https://www.kaggle.com/karangadiya/fifa19.
+
+    Examples
+    --------
+    >>> data = read_fifa()
+    >>> print(data[['Name', 'Wage', 'LS', 'BallControl']][:5])
+                    Name   Wage    LS  BallControl
+    0           L. Messi  €565K  88+2         96.0
+    1  Cristiano Ronaldo  €405K  91+3         94.0
+    2          Neymar Jr  €290K  84+3         95.0
+    3             De Gea  €260K   NaN         42.0
+    4       K. De Bruyne  €355K  82+3         91.0
     """
     return pd.read_csv("fifa19_data.csv")
-
 
 
 def exclude_goalkeepers(data_frame):
@@ -270,7 +280,7 @@ def to_int(not_int):
 
     See Also
     --------
-    math.nan : Nan stands for not a number.
+    numpy.nan : Nan stands for not a number.
     
     Examples
     --------
@@ -278,7 +288,8 @@ def to_int(not_int):
     >>> print(n)
     17
 
-    >>> n = to_int(math.nan)
+    >>> import numpy
+    >>> n = to_int(numpy.nan)
     >>> print(n)
     0
     """
@@ -447,10 +458,6 @@ def split_work_rate(data_frame):
     0                    1                    1
     1                    2                    0
     2                    2                    1
-    >>> print(data[['Work Rate']][0:3]) #print first few rows
-    Traceback (most recent call last):
-        ...
-    KeyError: "['Work Rate'] not in index"
     """
     data_frame.rename(columns={'Work Rate': 'Work'}, inplace=True)
     data_frame[['Defensive Work Rate', 'Offensive Work Rate']] = data_frame.Work.str.split('/ ', expand=True)
