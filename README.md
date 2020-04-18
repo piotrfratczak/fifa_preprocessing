@@ -29,7 +29,8 @@ $ import pandas as pd
 ```
 ## Acknowledgements
 This project was created to use FIFA 19 data set, containing information about players in the game. It is strongly advised to use the same dataset to use this module to its full potential. The data set is shared by Karan Gadiya on https://www.kaggle.com/karangadiya/fifa19.
-The data set is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0International License][cc-by-nc-sa], which makes it unconvenientto include it in the package, because it would strongly constrain the possibilities to use this package.
+
+The data set is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, which makes it unconvenientto include it in the package, because it would strongly constrain the possibilities to use this package.
 
 ## Running
 If program is run directly it will return a graph. 
