@@ -13,13 +13,8 @@ are made specifically with the FIFA 19 data set in mind.
 This module requires that `pandas` be installed within the Python
 environment this module is being run in.
 
-If run as main or using demo function, this module also requires
-that `matplotlib.pyplot` be installed.
-
 Functions
 ---------
-read_fifa()
-    Read the FIFA 19 data set.
 exclude_goalkeepers(data_frame)
     Delete goalkeepers from the data.
 money_format(money)
@@ -41,50 +36,6 @@ preprocess(source_file)
 """
 import math
 import pandas as pd
-
-
-def read_fifa():
-    """Return the FIFA 19 data set.
-
-    Read "fifa19_data.csv" containing the FIFA 19 data set into a  DataFrame
-    object and return it.
-
-    Returns
-    -------
-    pandas.DataFrame
-        DataFrame containing FIFA 19 data set.
-
-    Notes
-    -----
-    About fifa19_data.csv file
-    fifa19_data.csv includes lastest edition FIFA 2019 players attributes like Age,
-    Nationality, Overall, Potential, Club, Value, Wage, Preferred Foot, International
-    Reputation, Weak Foot, Skill Moves, Work Rate, Position, Jersey Number, Joined,
-    Loaned From, Contract Valid Until, Height, Weight, LS, ST, RS, LW, LF, CF, RF, RW,
-    LAM, CAM, RAM, LM, LCM, CM, RCM, RM, LWB, LDM, CDM, RDM, RWB, LB, LCB, CB, RCB, RB,
-    Crossing, Finishing, Heading, Accuracy, ShortPassing, Volleys, Dribbling, Curve,
-    FKAccuracy, LongPassing, BallControl, Acceleration, SprintSpeed, Agility, Reactions,
-    Balance, ShotPower, Jumping, Stamina, Strength, LongShots, Aggression, Interceptions,
-    Positioning, Vision, Penalties, Composure, Marking, StandingTackle, SlidingTackle,
-    GKDiving, GKHandling, GKKicking, GKPositioning, GKReflexes, and Release Clause.
-    More information about the data can be found in the source [1].
-
-    References
-    ----------
-    [1] This data set was scraped from https://www.kaggle.com/karangadiya/fifa19.
-
-    Examples
-    --------
-    >>> data = read_fifa()
-    >>> print(data[['Name', 'Wage', 'LS', 'BallControl']][:5])
-                    Name   Wage    LS  BallControl
-    0           L. Messi  €565K  88+2         96.0
-    1  Cristiano Ronaldo  €405K  91+3         94.0
-    2          Neymar Jr  €290K  84+3         95.0
-    3             De Gea  €260K   NaN         42.0
-    4       K. De Bruyne  €355K  82+3         91.0
-    """
-    return pd.read_csv("fifa19_data.csv")
 
 
 def exclude_goalkeepers(data_frame):
@@ -113,7 +64,7 @@ def exclude_goalkeepers(data_frame):
     
     Examples
     --------
-    >>> data = read_fifa()
+    >>> data = pd.read_csv("data.csv")
     >>> print(data[['Name', 'Position']][0:5]) #print first few rows
                     Name Position
     0           L. Messi       RF
@@ -329,7 +280,7 @@ def apply_format(data_frame, column_names, format_method):
 
     Examples
     --------
-    >>> data = read_fifa()
+    >>> data = pd.read_csv("data.csv")
     >>> print(data[['Wage']][0:3]) #print first few lines
         Wage
     0  €565K
@@ -446,7 +397,7 @@ def split_work_rate(data_frame):
 
     Examples
     --------
-    >>> data = read_fifa()
+    >>> data = pd.read_csv("data.csv")
     >>> print(data[['Work Rate']][0:3]) #print first few rows
             Work Rate
     0  Medium/ Medium

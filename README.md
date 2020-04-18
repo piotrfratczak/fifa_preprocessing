@@ -1,10 +1,10 @@
 # fifa_preprocessing
-This module provides methods conceived to preprocess data stored in a csv file etc., with the intent to perform data analysis and Machine Learning.
+This module provides methods conceived to preprocess data stored in csv files etc., with the intent to perform data analysis and Machine Learning.
 
 ## Table of contents
 * [General Info](#general-info)
 * [Technologies](#technologies)
-* [Data](#data)
+* [Acknowledgements](#acknowledgements)
 * [Running](#running)
 * [Functions](#functions)
 * [Testing](#testing)
@@ -27,9 +27,9 @@ To install use:
 $ import math
 $ import pandas as pd
 ```
-## Data
-Data set used in this project is shared by Karan Gadiya on https://www.kaggle.com/karangadiya/fifa19 licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0
-International License][cc-by-nc-sa].
+## Acknowledgements
+This project was created to use FIFA 19 data set, containing information about players in the game. It is strongly advised to use the same dataset to use this module to its full potential. The data set is shared by Karan Gadiya on https://www.kaggle.com/karangadiya/fifa19.
+The data set is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0International License][cc-by-nc-sa], which makes it unconvenientto include it in the package, because it would strongly constrain the possibilities to use this package.
 
 ## Running
 If program is run directly it will return a graph. 
@@ -55,13 +55,4 @@ Project is curently in progress.
 Piotr Frątczak, Jakub Płudowski
 
 ## License
-Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
-
-This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0
-International License][cc-by-nc-sa].
-
-[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
-
-[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
-[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
-[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
