@@ -8,6 +8,7 @@ PyPI:         https://pypi.org/project/fifa-preprocessing/
 * [General Info](#general-info)
 * [Acknowledgements](#acknowledgements)
 * [Technologies and Dependencies](#technologies-and-dependencies)
+* [Installation](#installation)
 * [Functions](#functions)
 * [Documentation](#documentation)
 * [Tutorial](#tutorial)
@@ -35,7 +36,13 @@ Required libraries:
 Math library comes with a python distribution, pandas, on the other hand, has to be installed to run *fifa_preprocessing*.
 To install pandas with pip:
 ```
-$ pip install --upgrade pandas
+$ pip install pandas
+```
+
+## Installation
+*fifa_preprocessing* can be easily installed with pip:
+```
+$ pip install fifa-preprocessing
 ```
 
 ## Functions
