@@ -19,6 +19,5 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=["pandas"],
     python_requires='>=3.6',
 )
