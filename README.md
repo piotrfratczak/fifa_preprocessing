@@ -2,6 +2,7 @@
 *fifa_preprocessing* is a module which provides methods conceived to preprocess data stored in csv files etc., with the intent to perform data analysis and Machine Learning.
 
 GitHub Pages: https://piotrfratczak.github.io/fifa_preprocessing/
+PyPI:         https://pypi.org/project/fifa-preprocessing/
 
 ## Table of contents
 * [General Info](#general-info)
