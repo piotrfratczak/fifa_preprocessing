@@ -1,15 +1,15 @@
 # fifa_preprocessing
 *fifa_preprocessing* is a module which provides methods conceived to preprocess data stored in csv files etc., with the intent to perform data analysis and Machine Learning.
 
-GitHub Pages: https://piotrfratczak.github.io/fifa_preprocessing/
+GitHub Pages: https://piotrfratczak.github.io/fifa_preprocessing/  <br />
 PyPI:         https://pypi.org/project/fifa-preprocessing/
 
 ## Table of contents
 * [General Info](#general-info)
 * [Acknowledgements](#acknowledgements)
-* [Technologies and Dependancies](#technologies)
+* [Technologies and Dependencies](#technologies-and-dependencies)
 * [Functions](#functions)
-* [Documentation](#website)
+* [Documentation](#documentation)
 * [Tutorial](#tutorial)
 * [Testing](#testing)
 * [Status](#status)
@@ -25,7 +25,7 @@ This project was created to use FIFA 19 data set, containing information about p
 
 The data set is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, which makes it unconvenientto include it in the package, because it would strongly constrain the possibilities to use this package.
 
-## Technologies and Depandancies
+## Technologies and Dependencies
 The module was written in Python 3.6 and requires 'pandas' to be installed in used environment.
 
 Required libraries:
@@ -66,4 +66,5 @@ Project is curently in progress.
 This package was created by [Piotr Frątczak](https://github.com/piotrfratczak) and [Jakub Płudowski](https://github.com/jpludowski), students at Warsaw University of Technology.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/piotrfratczak/fifa_preprocessing/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/piotrfratczak/fifa_preprocessing/blob/master/LICENSE) file for details. <br /> 
+We chose this license for every one to feel free to use our code, tweak it and expand on it.
