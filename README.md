@@ -1,6 +1,8 @@
 # fifa_preprocessing
 This module provides methods conceived to preprocess data stored in csv files etc., with the intent to perform data analysis and Machine Learning.
 
+GitHub Pages: https://piotrfratczak.github.io/fifa_preprocessing/
+
 ## Table of contents
 * [General Info](#general-info)
 * [Technologies](#technologies)
