@@ -48,13 +48,13 @@ def exclude_goalkeepers(data_frame):
     Parameters
     ----------
     data_frame : pandas.DataFrame
-    DataFrame containing FIFA19 data set including goalkeepers.
+        DataFrame containing FIFA19 data set including goalkeepers.
 
     Returns
     -------
     data_frame : pandas.DataFrame
-    DataFrame containing FIFA19 data set with goalkeepers' tuples
-    removed.
+        DataFrame containing FIFA19 data set with goalkeepers' tuples
+        removed.
 
     Notes
     -----
@@ -66,7 +66,7 @@ def exclude_goalkeepers(data_frame):
     --------
     >>> data = pd.read_csv("data.csv")
     >>> print(data[['Name', 'Position']][0:5]) #print first few rows
-    Name Position
+                    Name Position
     0           L. Messi       RF
     1  Cristiano Ronaldo       ST
     2          Neymar Jr       LW
@@ -74,7 +74,7 @@ def exclude_goalkeepers(data_frame):
     4       K. De Bruyne      RCM
     >>> data = exclude_goalkeepers(data)
     >>> print(data[['Name', 'Position']][0:5]) #print the same number of rows
-    Name Position
+                    Name Position
     0           L. Messi       RF
     1  Cristiano Ronaldo       ST
     2          Neymar Jr       LW
