@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="fifa_preprocessing",
-    version="0.4.0",
+    version="1.1.2",
     author="Piotr Frątczak",
     author_email="piotrfratczak99@gmail.com",
     description="A package providing methods to preprocess data, with the intent to perform Machine Learning.",

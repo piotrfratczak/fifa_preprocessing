@@ -48,25 +48,25 @@ def exclude_goalkeepers(data_frame):
     Parameters
     ----------
     data_frame : pandas.DataFrame
-        DataFrame containing FIFA19 data set including goalkeepers.
+    DataFrame containing FIFA19 data set including goalkeepers.
 
     Returns
     -------
     data_frame : pandas.DataFrame
-        DataFrame containing FIFA19 data set with goalkeepers' tuples
-        removed.
+    DataFrame containing FIFA19 data set with goalkeepers' tuples
+    removed.
 
     Notes
     -----
     This function can be used when preprocessing the FIFA19 dataset to
     perform Machine Learning as a goalkeeper is a peculiar player  and
     all his properties vary compared to other positions on the field.
-    
+
     Examples
     --------
     >>> data = pd.read_csv("data.csv")
     >>> print(data[['Name', 'Position']][0:5]) #print first few rows
-                    Name Position
+    Name Position
     0           L. Messi       RF
     1  Cristiano Ronaldo       ST
     2          Neymar Jr       LW
@@ -74,7 +74,7 @@ def exclude_goalkeepers(data_frame):
     4       K. De Bruyne      RCM
     >>> data = exclude_goalkeepers(data)
     >>> print(data[['Name', 'Position']][0:5]) #print the same number of rows
-                    Name Position
+    Name Position
     0           L. Messi       RF
     1  Cristiano Ronaldo       ST
     2          Neymar Jr       LW
@@ -295,7 +295,7 @@ def apply_format(data_frame, column_names, format_method):
     """
     for column in column_names:
         if isinstance(column, str) and (column in data_frame) and callable(format_method):
-            data_frame[column] = data_frame[column].apply(format_method)
+            data_frame.loc[:, column] = data_frame[column].apply(format_method)
     return data_frame
 
 
@@ -362,7 +362,7 @@ def to_dummy(data_frame, column_names):
     for column in column_names:
         if isinstance(column, str) and column in data_frame:
             dummies = pd.get_dummies(data_frame[column])
-            data_frame = pd.concat([data_frame, dummies])
+            data_frame = pd.concat([data_frame, dummies], axis=1)
             data_frame = data_frame.drop([column], axis=1)
     return data_frame
 
@@ -410,9 +410,10 @@ def split_work_rate(data_frame):
     1                    2                    0
     2                    2                    1
     """
-    data_frame.rename(columns={'Work Rate': 'Work'}, inplace=True)
-    data_frame[['Defensive Work Rate', 'Offensive Work Rate']] = data_frame.Work.str.split('/ ', expand=True)
-    data_frame = data_frame.drop('Work', axis=1)
+    work_split = data_frame['Work Rate'].str.split('/ ', expand=True)
+    work_split.rename(columns={0 : 'Defensive Work Rate', 1 : 'Offensive Work Rate'}, inplace=True)
+    data_frame = pd.concat([data_frame, work_split], axis=1)
+    data_frame = data_frame.drop('Work Rate', axis=1)
     return apply_format(data_frame, ['Defensive Work Rate', 'Offensive Work Rate'], work_format)
 
 
@@ -459,9 +460,9 @@ def preprocess(data):
     
     # Compute ratings on specific positions on the field and on football skills.
     for label in data.columns[15:41]:
-        data[label] = data[label].apply(rating_format)
+        data.loc[:, label] = data[label].apply(rating_format)
     for label in data.columns[41:75]:
-        data[label] = data[label].apply(to_int)
+        data.loc[:, label] = data[label].apply(to_int)
 
     # Drop rows with missing values.
     data.dropna(inplace=True)
